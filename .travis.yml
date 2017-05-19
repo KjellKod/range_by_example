@@ -40,6 +40,7 @@ script:
   - git clone https://github.com/ericniebler/range-v3.git
   - cp -r "range-v3/include/range/v3" .
   - mkdir build && cd build
+  - cmake ..
   - make 
   #- ctest --output-on-failure
 
