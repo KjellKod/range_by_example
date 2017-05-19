@@ -20,25 +20,26 @@ install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then apt show g++-6; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -V gcc-6 g++-6; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -V gcc-6 g++-6 git; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 10; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 10; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get remove -qq cmake cmake-data; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install cmake cmake-data; fi
   
 script:
+
   - pwd
-  - sudo ls /usr/bin
-  - sudo ls /usr/local/bin
-  - which gcc
-  - gcc --version
-  - which g++
-  - g++ --version
-  - which gcc-6
-  - locate gcc-6
-  #- mkdir build && cd build
-  #- cmake ..
-  - cmake .
+#  - sudo ls /usr/bin
+#  - sudo ls /usr/local/bin
+#  - which gcc
+#  - gcc --version
+#  - which g++
+#  - g++ --version
+#  - which gcc-6
+#  - locate gcc-6
+  - git clone https://github.com/ericniebler/range-v3.git
+  - cp -r "range-v3/include/range/v3" .
+  - mkdir build && cd build
   - make 
   #- ctest --output-on-failure
 

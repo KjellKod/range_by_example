@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 2.8)
 include_directories(${RANGE_INCLUDE})
 
 #probably not required for most
-add_definitions( -std=c++17 )
+add_definitions( -std=c++14 )
 add_definitions( -Wall -Wextra -Werror )   # all on and fatal by default
 add_definitions( -Wno-missing-braces )     # exclude those we disagree with
 
