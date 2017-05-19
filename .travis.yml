@@ -17,8 +17,8 @@ branches:
   
 install:
   - echo $TRAVIS_OS_NAME
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty main universe multiverse restricted" > /etc/apt/sources.list
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty-updates main universe multiverse restricted" >> /etc/apt/sources.list
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty main universe multiverse restricted" > /etc/apt/sources.list; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty-updates main universe multiverse restricted" >> /etc/apt/sources.list; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install ppa-purge; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq; fi
