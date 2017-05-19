@@ -19,18 +19,13 @@ before_install:
    if [ ${TRAVIS_OS_NAME} == 'linux' ]; 
    then 
      echo "running linux"
-
      sudo update-alternatives --remove-all gcc 
      sudo update-alternatives --remove-all g++
-
      sudo add-apt-repository ppa:jonathonf/gcc-7.1
      sudo apt-get update
-
      sudo apt-get -V install gcc-7 g++-7
      sudo update-alternatives --config gcc
      sudo update-alternatives --config g++
-
-
      sudo apt-get remove -qq cmake cmake-data
      sudo apt-get install cmake cmake-data;
      sudo apt-get install software-properties-common;
