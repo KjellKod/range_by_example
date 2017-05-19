@@ -16,16 +16,16 @@ branches:
 
 before_install:
    # conditional preparation for OSX 
-   if [ ${TRAVIS_OS_NAME} = 'linux' ]; 
-   then 
+   #if [ ${TRAVIS_OS_NAME} = 'linux' ]; 
+   #then 
      sudo add-apt-repository ppa:jonathonf/gcc-7.1
      sudo apt-get update
 
-     sudo apt-get install gcc-7 g++-7
+     sudo apt-get -V install gcc-7 g++-7
      sudo apt-get remove -qq cmake cmake-data
      sudo apt-get install cmake cmake-data;
      sudo apt-get install software-properties-common;
-   fi
+   #fi
  
 install:
   #  gcc 7.1
