@@ -40,15 +40,7 @@ script:
 #  - which gcc-6
 #  - locate gcc-6
   - git clone https://github.com/ericniebler/range-v3.git
-  - git clone https://github.com/ericniebler/range-v3.git
-  - cd range-v3/
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make -j4
-  - sudo make install
-  - cd ../../
-  - ls
+  - cp -r range-v3/include/* /usr/local/include/.
   - mkdir build && cd build
   - cmake ..
   - make -j 
