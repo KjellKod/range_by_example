@@ -29,8 +29,8 @@ before_install:
  
 install:
   #  gcc 7.1
-  - if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 10; fi
-  - if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10; fi
+  - if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10; fi
+  - if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10; fi
 
  
 script:
