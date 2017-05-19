@@ -36,8 +36,9 @@ script:
   - g++ --version
   - which gcc-6
   - locate gcc-6
-  - mkdir build && cd build
-  - cmake ..
+  #- mkdir build && cd build
+  #- cmake ..
+  - cmake .
   - make 
   #- ctest --output-on-failure
 
