@@ -29,15 +29,20 @@ before_install:
  
 install:
   #  gcc 7.1
-  - if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10; fi
-  - if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10; fi
-
+  #- if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10; fi
+  #- if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10; fi
+  
  
 script:
+  - pwd
+  - which gcc
+  - gcc --version
+  - which g++
+  - g++ --version
   - mkdir build && cd build
   - cmake ..
   - make -j
-  - make test
+  #- make test
 
 
  
