@@ -38,13 +38,18 @@ script:
 #  - which gcc-6
 #  - locate gcc-6
   - git clone https://github.com/ericniebler/range-v3.git
-  - cd  range-v3/include
-  - mv range ../../.
+  - git clone https://github.com/ericniebler/range-v3.git
+  - cd range-v3/
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j
+  - sudo make install
   - cd ../../
   - ls
   - mkdir build && cd build
   - cmake ..
-  - make 
+  - make -j 
   #- ctest --output-on-failure
 
 
