@@ -13,30 +13,19 @@ branches:
   only:
     - master
 
-
-before_install:
-   # conditional preparation for OSX 
-   if [ ${TRAVIS_OS_NAME} == 'linux' ]; 
-   then 
-     echo "running linux"
-     sudo update-alternatives --remove-all gcc 
-     sudo update-alternatives --remove-all g++
-     sudo add-apt-repository ppa:jonathonf/gcc-7.1
-     sudo apt-get update
-     sudo apt-get -V install gcc-7 g++-7
-     sudo update-alternatives --config gcc
-     sudo update-alternatives --config g++
-     sudo apt-get remove -qq cmake cmake-data
-     sudo apt-get install cmake cmake-data;
-     sudo apt-get install software-properties-common;
-   fi
- 
-install:
-  #  gcc 7.1
-  #- if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10; fi
-  #- if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 10; fi
   
- 
+install:
+  - echo $TRAVIS_OS_NAME
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository -y ppa:jonathonf/gcc-7.1; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install gcc-7 g++-7; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7.1 20; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7.1 20; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config gcc; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config g++; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get remove -qq cmake cmake-data; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install cmake cmake-data; fi
+  
 script:
   - pwd
   - which gcc
