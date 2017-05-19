@@ -1,0 +1,43 @@
+language: cpp
+
+os:
+  - linux
+
+dist: trusty
+
+compiler: 
+     - gcc
+
+# whitelist
+branches:
+  only:
+    - master
+
+
+before_install:
+   # conditional preparation for OSX 
+   if [ ${TRAVIS_OS_NAME} = 'linux' ]; 
+   then 
+     sudo add-apt-repository ppa:jonathonf/gcc-7.1
+     sudo apt-get update
+
+     sudo apt-get install gcc-7 g++-7
+     sudo apt-get remove -qq cmake cmake-data
+     sudo apt-get install cmake cmake-data;
+     sudo apt-get install software-properties-common;
+   fi
+ 
+install:
+  #  gcc 7.1
+  - if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 10; fi
+  - if [ "$CXX" == "g++" ]; then  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10; fi
+
+ 
+script:
+  - mkdir build && cd build
+  - cmake ..
+  - make -j
+  - make test
+
+
+ 
