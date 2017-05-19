@@ -38,7 +38,7 @@ script:
 #  - which gcc-6
 #  - locate gcc-6
   - git clone https://github.com/ericniebler/range-v3.git
-  - cd  range-v3/include"
+  - cd  range-v3/include
   - mv range ../../.
   - ls
   - mkdir build && cd build
