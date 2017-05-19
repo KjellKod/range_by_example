@@ -21,8 +21,8 @@ install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then apt show g++-6; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install gcc-6 g++-6; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config gcc; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config g++; fi
+#  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config gcc; fi
+#  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --config g++; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get remove -qq cmake cmake-data; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install cmake cmake-data; fi
   
