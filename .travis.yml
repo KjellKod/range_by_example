@@ -40,6 +40,7 @@ script:
   - git clone https://github.com/ericniebler/range-v3.git
   - cd  range-v3/include
   - mv range ../../.
+  - cd ../../
   - ls
   - mkdir build && cd build
   - cmake ..
