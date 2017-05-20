@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 # Install
-RUN sudo add-apt-repository -y ppa:jonathonf/gcc-7.1
+RUN add-apt-repository -y ppa:jonathonf/gcc-7.1
 RUN apt-get update
 RUN apt-get install -y cmake software-properties-common git make
 RUN apt-get install -y gcc-7 g++-7 
