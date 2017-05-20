@@ -8,8 +8,10 @@ compiler:
 services:
   - docker
 
+env:
+  - distro: ubuntu1604
+
 before_install:
-  - docker pull ubuntu:16.04
   - docker run -it ubuntu bash
 
 install:
