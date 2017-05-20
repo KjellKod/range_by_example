@@ -1,7 +1,8 @@
 FROM ubuntu:16.04
 
 # Install
-RUN apt-get install software-properties-common python-software-properties
+RUN sudo apt-get update
+RUN apt-get install software-properties-common
 RUN apt-get update
 RUN add-apt-repository -y ppa:jonathonf/gcc-7.1
 RUN apt-get update
