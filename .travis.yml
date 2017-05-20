@@ -15,24 +15,10 @@ branches:
  
 install:
   - echo $TRAVIS_OS_NAME
-  - sudo apt-get install -qq gcc-7
+  - sudo apt-get install -qq gcc-7 g++-7 
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90 
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
  
-script:
 
-  - pwd
-  - which g++
-  - g++ --version
-  - git clone https://github.com/ericniebler/range-v3.git
-  - sudo cp -r range-v3/include/* /usr/local/include/.
-  - mkdir build && cd build
-  - cmake ..
-  - make -j
-  # until we have unit tests. find all executables and run them
-  - rm -rf CMake*
-  - find . -type f -executable -exec '{}' ';' 
-  #- ctest --output-on-failure
-
-
+script: "bash -c ./scripts/travis/ubuntu-16-build.sh"
  
