@@ -8,10 +8,10 @@ before_install:
   - docker pull ubuntu:16.04 
 
 install:
- - add-apt-repository -y ppa:ubuntu-toolchain-r/test 
- - apt-get update
- - apt-get install gcc-17 
- - apt-get install g++-17 
+ - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test 
+ - sudo apt-get update
+ - sudo apt-get install gcc-17 
+ - sudo apt-get install g++-17 
 
 script: "bash -c ./scripts/travis/ubuntu-16-build.sh"
  
