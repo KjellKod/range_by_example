@@ -9,7 +9,7 @@ services:
 
 before_install:
   - docker pull pacur/ubuntu-xenial
-  - docker run -it pacur/ubuntu-xenial bash
+  - docker run -it pacur/ubuntu-xenial /bin/bash
 
 install:
  - add-apt-repository -y ppa:ubuntu-toolchain-r/test 
