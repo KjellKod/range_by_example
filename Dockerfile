@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 # Install
 RUN apt-get update -y
+RUN apt-get install -y apt-utils | true
 RUN apt-get install -y software-properties-common | true
 RUN apt-get install -y python-software-properties
 RUN apt-get update -y
