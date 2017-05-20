@@ -1,18 +1,15 @@
 sudo: required
-
 language: cpp
-
 compiler:
   - g++
 
 services:
   - docker
 
-env:
-  - distro: ubuntu1604
 
 before_install:
-  - docker run -it ubuntu bash
+  - docker pull pacur/ubuntu-xenial
+  - docker run -it ubuntu-xenial bash
 
 install:
  - add-apt-repository -y ppa:ubuntu-toolchain-r/test 
